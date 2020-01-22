@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hornet</title>
+    <link href="stylesheets/main.css" rel="stylesheet" type="text/css">
+    <link href="images/logo_20x20.png" rel="icon" type="image/png">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body>
+<div class="main-container">
+    <div class="item controller_debug">
+        <h3>Controller Status</h3>
+        <div class="info">
+            <p id="heading"></p>
+            <p id="message"></p>
+        </div>
+    </div>
+
+    <div class="item axises_debug">
+        <h3>Axes Output</h3>
+        <div id="axes">
+            <table>
+                <tr>
+                    <th colspan="2">Left Stick</th>
+                </tr>
+                <tr>
+                    <td>Axis X:</td>
+                    <td class="axis" id="leftAxisX">-</td>
+                </tr>
+                <tr>
+                    <td>Axis Y:</td>
+                    <td class="axis" id="leftAxisY">-</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <th colspan="2">Right Stick</th>
+                </tr>
+                <tr>
+                    <td>Axis X:</td>
+                    <td class="axis" id="rightAxisX">-</td>
+                </tr>
+                <tr>
+                    <td>Axis Y:</td>
+                    <td class="axis" id="rightAxisY">-</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="item connectivity_debug">
+        <h3>Connectivity</h3>
+        <p id="connectionStatus"></p>
+        <p id="connectionPing"></p>
+    </div>
+
+    <div class="item visualizer">
+        <div id="propellerTopLeft">-</div>
+        <div id="propellerTopRight">-</div>
+        <div id="propellerBottomLeft">-</div>
+        <div id="propellerBottomRight">-</div>
+    </div>
+
+    <div class="item camera">
+    </div>
+
+    <script src="/node_modules/socket.io-client/dist/socket.io.js"></script>
+</div>
+
+<script src="/public/javascripts/controller.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+
+const program = require('commander');
+const app = require(__dirname + '/../app');
+
+program
+    .version('0.0.1')
+    .option('-d, --debug', 'Disable PWM')
+    .option('-c, --config <path>', 'Load config file(s)', path => app.load(path), []);
+
+program.parse(process.argv);
+if (program.debug) {
+    app.config = {...app.config, ...{debug: true}};
+}
+
+app.start();
+
+process.on('SIGINT', () => {
+    app.stop();
+    process.exit(0);
+});
+

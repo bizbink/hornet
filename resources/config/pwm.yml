@@ -1,0 +1,12 @@
+pmw:
+  _defaults:
+    motor:
+      throttle:
+        threshold: 127
+        max: 255
+        min: 1
+  motors: []
+  #- { id: m1, throttle: {
+  #  threshold: 200, max: 235} }
+  #- { id: m2, throttle: {
+  #  threshold: 200, min: 20, max: 235 } }

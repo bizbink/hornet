@@ -1,0 +1,5 @@
+motors:
+  - { id: m1, direction: cw, pin: 17 }
+  - { id: m2, direction: ccw, pin: 18 }
+  - { id: m3, direction: cw, pin: 27 }
+  - { id: m4, direction: ccw, pin: 22 }

@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container {
+    display: grid;
+    grid-template-areas: "controller_debug visualizer visualizer" "axises_debug visualizer visualizer" "connectivity_debug visualizer visualizer";
+    grid-gap: 10px;
+
+}
+
+.item {
+    width: 300px;
+    border-radius: 4px;
+    padding: 10px;
+    border: black solid 1px;
+}
+
+.item > h3 {
+    margin: 0 0 20px 0;
+}
+
+.controller_debug,
+.axises_debug,
+.controller_debug,
+.connectivity_debug {
+    width: 400px;
+}
+
+.controller_debug {
+    height: 150px;
+    grid-area: controller_debug;
+}
+
+.axises_debug {
+    grid-area: axises_debug;
+}
+
+.axises_debug > #axes {
+    display: flex;
+    justify-content: space-around;
+}
+
+.axises_debug > #axes > table {
+    width: 120px;
+}
+
+.axises_debug td.axis {
+    float: right;
+}
+
+.connectivity_debug {
+    grid-area: connectivity_debug;
+}
+
+.visualizer {
+    width: unset;
+    grid-area: visualizer;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-areas: 'propellerTopLeft propellerTopRight' 'propellerBottomLeft propellerBottomRight';
+}
+
+.visualizer > div#propellerTopLeft,
+.visualizer > div#propellerTopRight,
+.visualizer > div#propellerBottomLeft,
+.visualizer > div#propellerBottomRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    border: black solid 1px;
+    font-size: 2em;
+}
+
+.camera {
+    grid-area: camera;
+    display: none;
+}
+
+@media only screen and (max-width: 800px) {
+    .main-container {
+        grid-template-areas: "controller_debug visualizer" "axises_debug visualizer" "connectivity_debug visualizer";
+    }
+
+    html, body {
+        font-family: 'Roboto', sans-serif;
+        height: unset;
+        margin: 10px;
+    }
+
+    body {
+        display: unset;
+        flex-direction: unset;
+        justify-content: unset;
+        align-items: unset;
+    }
+
+    .controller_debug,
+    .axises_debug,
+    .controller_debug,
+    .connectivity_debug {
+        width: unset;
+    }
+
+    .visualizer > div#propellerTopLeft,
+    .visualizer > div#propellerTopRight,
+    .visualizer > div#propellerBottomLeft,
+    .visualizer > div#propellerBottomRight {
+        height: unset;
+        width: unset;
+    }
+}

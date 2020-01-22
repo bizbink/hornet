@@ -1,0 +1,24 @@
+{
+  "name": "hornet",
+  "homepage": "https://github.com/bizbink/hornet",
+  "author": {
+    "name": "Matthew Vanderende",
+    "email": "matthew@vanderende.ca",
+    "url": "https://vanderende.ca"
+  },
+  "version": "0.0.1",
+  "bin": {
+    "hornet": "bin/run"
+  },
+  "repository": "github:bizbink/hornet",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "commander": "^4.1.0",
+    "debug": "~2.6.9",
+    "joypad.js": "^2.0.3",
+    "pigpio": "^3.0",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0",
+    "yaml": "^1.7.2"
+  }
+}
