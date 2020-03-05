@@ -1,0 +1,41 @@
+# Configuration example for 4 motor placement
+movements:
+  yaw:
+    clockwise:
+      motors:
+        - { id: m1, adj: -0.05 }
+        - { id: m2, adj: 0.1 }
+        - { id: m3, adj: 0.1 }
+        - { id: m4, adj: -0.05 }
+    counter_clockwise:
+      motors:
+        - { id: m1, adj: 0.1 }
+        - { id: m2, adj: -0.05 }
+        - { id: m3, adj: -0.05 }
+        - { id: m4, adj: 0.1 }
+  pitch:
+    forward:
+      motors:
+        - { id: m1, adj: -0.05 }
+        - { id: m2, adj: -0.05 }
+        - { id: m3, adj: 0.1 }
+        - { id: m4, adj: 0.1 }
+    backwards:
+      motors:
+        - { id: m1, adj: 0.1 }
+        - { id: m2, adj: 0.1 }
+        - { id: m3, adj: -0.05 }
+        - { id: m4, adj: -0.05 }
+  roll:
+    left:
+      motors:
+        - { id: m1, adj: -0.05 }
+        - { id: m2, adj: 0.1 }
+        - { id: m3, adj: -0.05 }
+        - { id: m4, adj: 0.1 }
+    right:
+      motors:
+        - { id: m1, adj: 0.1 }
+        - { id: m2, adj: -0.05 }
+        - { id: m3, adj: 0.1 }
+        - { id: m4, adj: -0.05 }

@@ -1,0 +1,8 @@
+# Configuration example for 6 motor placement
+motors:
+  - { id: m1, direction: cw, pin: 17 }
+  - { id: m2, direction: ccw, pin: 18 }
+  - { id: m3, direction: ccw, pin: 27 }
+  - { id: m4, direction: cw, pin: 22 }
+  - { id: m5, direction: cw, pin: 69 }
+  - { id: m6, direction: ccw, pin: 96 }
