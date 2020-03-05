@@ -10,6 +10,10 @@ class Motor {
         };
         this.gpio = null;
     }
+
+    toReactObject() {
+        return {id: this.id, throttle: this.throttle.abs};
+    }
 }
 
 module.exports = Motor;

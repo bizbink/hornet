@@ -9,6 +9,12 @@ hornet.load(__dirname + '/resources/config/movements.yml');
 hornet.load(__dirname + '/resources/config/pwm.yml');
 
 io.on('connection', socket => {
+    let motors = [];
+    hornet.drone.motors.forEach(motor => {
+        motors.push(motor.toReactObject());
+    });
+    socket.emit('initializeMotors', motors);
+
     console.log(chalk.green('Controlled connected.'));
     socket.on('axis_move', data => {
         let {axisMovementValue, axis} = data;
@@ -28,6 +34,10 @@ io.on('connection', socket => {
         }
     });
 
+    socket.on('ping', function () {
+        socket.emit('pong');
+    });
+
     hornet.on('movement', (movement) => {
         switch (movement.type) {
             case 'roll':
@@ -45,7 +55,11 @@ io.on('connection', socket => {
         }
 
         hornet.drone.motors.forEach((motor) => {
-            motor.throttle.abs = Math.round(motor.throttle.nom + (motor.throttle.nom * (motor.throttle.adj)));
+            let newAbs = Math.round(motor.throttle.nom + (motor.throttle.nom * (motor.throttle.adj)));
+            if (newAbs <= 255) {
+                motor.throttle.abs = newAbs;
+
+            }
         });
 
         hornet.drone.motors.forEach(motor => {
