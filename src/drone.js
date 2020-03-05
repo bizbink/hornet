@@ -4,7 +4,6 @@ class Drone {
     constructor(config) {
         this.config = config;
         this.motors = [];
-        this.oldMotors = [];
         this.axes = {yaw: 0, pitch: 0, roll: 0};
 
         this.config['motors'].forEach(declaration => {
