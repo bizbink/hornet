@@ -66,7 +66,7 @@ class Drone {
         if (previousDirection !== undefined) {
             for (let i = 0; i < this.motors.length; i++) {
                 let motor = this.motors[i];
-                motor['throttle']['adj'] -= this.axes.yaw * this.config['movements']['yaw'][previousDirection]['motors']
+                motor['throttle']['adj'] -= Math.abs(this.axes.yaw) * this.config['movements']['yaw'][previousDirection]['motors']
                     .find(config_motor => config_motor.id === motor.id)['adj'];
                 this.motors[i] = motor;
             }
@@ -83,7 +83,7 @@ class Drone {
         if (currentDirection !== undefined) {
             for (let i = 0; i < this.motors.length; i++) {
                 let motor = this.motors[i];
-                motor['throttle']['adj'] += this.axes.yaw * this.config['movements']['yaw'][currentDirection]['motors']
+                motor['throttle']['adj'] += Math.abs(value) * this.config['movements']['yaw'][currentDirection]['motors']
                     .find(config_motor => config_motor.id === motor.id)['adj'];
                 this.motors[i] = motor;
             }
@@ -101,7 +101,7 @@ class Drone {
         if (previousDirection !== undefined) {
             for (let i = 0; i < this.motors.length; i++) {
                 let motor = this.motors[i];
-                motor['throttle']['adj'] -= this.axes.roll * this.config['movements']['roll'][previousDirection]['motors']
+                motor['throttle']['adj'] -= Math.abs(this.axes.roll) * this.config['movements']['roll'][previousDirection]['motors']
                     .find(config_motor => config_motor.id === motor.id)['adj'];
                 this.motors[i] = motor;
             }
@@ -118,7 +118,7 @@ class Drone {
         if (currentDirection !== undefined) {
             for (let i = 0; i < this.motors.length; i++) {
                 let motor = this.motors[i];
-                motor['throttle']['adj'] += this.axes.roll * this.config['movements']['roll'][currentDirection]['motors']
+                motor['throttle']['adj'] += Math.abs(value) * this.config['movements']['roll'][currentDirection]['motors']
                     .find(config_motor => config_motor.id === motor.id)['adj'];
                 this.motors[i] = motor;
             }
@@ -136,7 +136,8 @@ class Drone {
         if (previousDirection !== undefined) {
             for (let i = 0; i < this.motors.length; i++) {
                 let motor = this.motors[i];
-                motor['throttle']['adj'] -= this.axes.pitch * this.config['movements']['pitch'][previousDirection]['motors'].find(config_motor => config_motor.id === motor.id)['adj'];
+                motor['throttle']['adj'] -= Math.abs(this.axes.pitch) * this.config['movements']['pitch'][previousDirection]['motors']
+                    .find(config_motor => config_motor.id === motor.id)['adj'];
                 this.motors[i] = motor;
             }
         }
@@ -152,7 +153,8 @@ class Drone {
         if (currentDirection !== undefined) {
             for (let i = 0; i < this.motors.length; i++) {
                 let motor = this.motors[i];
-                motor['throttle']['adj'] += this.axes.pitch * this.config['movements']['pitch'][currentDirection]['motors'].find(config_motor => config_motor.id === motor.id)['adj'];
+                motor['throttle']['adj'] += Math.abs(value) * this.config['movements']['pitch'][currentDirection]['motors']
+                    .find(config_motor => config_motor.id === motor.id)['adj'];
                 this.motors[i] = motor;
             }
         }
